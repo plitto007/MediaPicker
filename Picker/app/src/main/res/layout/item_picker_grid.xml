@@ -7,7 +7,7 @@
     android:background="?selectableItemBackground"
     android:padding="@dimen/margin">
 
-    <android.support.v7.widget.AppCompatImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/icon"
         android:layout_width="@dimen/icon"
         android:layout_height="@dimen/icon"
@@ -16,7 +16,7 @@
         android:scaleType="centerInside"
         app:srcCompat="@drawable/ic_image" />
 
-    <android.support.v7.widget.AppCompatTextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/label"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -2,7 +2,7 @@ package com.robertlevonyan.components.picker
 
 import android.annotation.SuppressLint
 import android.os.Parcelable
-import android.support.annotation.IntDef
+import androidx.annotation.IntDef
 import kotlinx.android.parcel.Parcelize
 
 @SuppressLint("ParcelCreator")

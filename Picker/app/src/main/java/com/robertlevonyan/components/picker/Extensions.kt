@@ -8,12 +8,12 @@ import android.graphics.drawable.Icon
 import android.net.Uri
 import android.os.Build
 import android.provider.MediaStore
-import android.support.annotation.DrawableRes
-import android.support.annotation.LayoutRes
-import android.support.annotation.RequiresApi
-import android.support.annotation.StringRes
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.annotation.DrawableRes
+import androidx.annotation.LayoutRes
+import androidx.annotation.RequiresApi
+import androidx.annotation.StringRes
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -56,11 +56,11 @@ infix fun ViewGroup.inflate(@LayoutRes lyt: Int): View {
     return LayoutInflater.from(context).inflate(lyt, this, false)
 }
 
-internal fun <I> RecyclerView.init(items: List<I>,
-                                   @LayoutRes itemLayout: Int,
-                                   layoutManager: RecyclerView.LayoutManager = LinearLayoutManager(this.context),
-                                   bind: View.(I, Int) -> Unit,
-                                   itemClick: (I, Int) -> Unit = { _, _ -> }) {
+internal fun <I> androidx.recyclerview.widget.RecyclerView.init(items: List<I>,
+                                                                @LayoutRes itemLayout: Int,
+                                                                layoutManager: androidx.recyclerview.widget.RecyclerView.LayoutManager = androidx.recyclerview.widget.LinearLayoutManager(this.context),
+                                                                bind: View.(I, Int) -> Unit,
+                                                                itemClick: (I, Int) -> Unit = { _, _ -> }) {
 
     adapter = BaseAdapter(items, itemLayout, bind, itemClick)
     this.layoutManager = layoutManager

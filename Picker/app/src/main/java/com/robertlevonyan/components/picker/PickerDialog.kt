@@ -15,17 +15,17 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
-import android.support.annotation.IntDef
-import android.support.design.widget.BottomSheetDialog
-import android.support.design.widget.BottomSheetDialogFragment
-import android.support.v4.app.ActivityCompat
-import android.support.v4.app.Fragment
-import android.support.v4.content.ContextCompat
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.AppCompatImageView
-import android.support.v7.widget.AppCompatTextView
-import android.support.v7.widget.GridLayoutManager
-import android.support.v7.widget.LinearLayoutManager
+import androidx.annotation.IntDef
+import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import androidx.core.app.ActivityCompat
+import androidx.fragment.app.Fragment
+import androidx.core.content.ContextCompat
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.AppCompatImageView
+import androidx.appcompat.widget.AppCompatTextView
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -36,7 +36,7 @@ import java.lang.IllegalStateException
 
 class PickerDialog : BottomSheetDialogFragment() {
     var activity: AppCompatActivity? = null
-    var fragment: Fragment? = null
+    var fragment: androidx.fragment.app.Fragment? = null
     private var uri: Uri? = null
     private var fileName = ""
     var onPickerCloseListener: OnPickerCloseListener? = null
@@ -73,7 +73,7 @@ class PickerDialog : BottomSheetDialogFragment() {
 
         private fun newInstance(
                 activity: AppCompatActivity?,
-                fragment: Fragment?,
+                fragment: androidx.fragment.app.Fragment?,
                 dialogTitle: String,
                 dialogTitleId: Int,
                 dialogTitleSize: Float,
@@ -117,7 +117,7 @@ class PickerDialog : BottomSheetDialogFragment() {
 
     class Builder {
         private var activity: AppCompatActivity? = null
-        private var fragment: Fragment? = null
+        private var fragment: androidx.fragment.app.Fragment? = null
 
         private var dialogTitle = ""
         private var dialogTitleId = 0
@@ -134,7 +134,7 @@ class PickerDialog : BottomSheetDialogFragment() {
             this.activity = activity
         }
 
-        constructor(fragment: Fragment) {
+        constructor(fragment: androidx.fragment.app.Fragment) {
             this.fragment = fragment
         }
 
@@ -256,7 +256,7 @@ class PickerDialog : BottomSheetDialogFragment() {
     private fun createList() {
         val viewItem = if (dialogListType == TYPE_LIST) Lyt.item_picker_list else Lyt.item_picker_grid
         val manager = if (dialogListType == TYPE_LIST)
-            LinearLayoutManager(context) else GridLayoutManager(context, dialogGridSpan)
+            androidx.recyclerview.widget.LinearLayoutManager(context) else androidx.recyclerview.widget.GridLayoutManager(context, dialogGridSpan)
 
         pickerItems.init(
                 dialogItems,
